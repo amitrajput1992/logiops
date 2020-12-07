@@ -2,3 +2,7 @@
 *.swp
 *~
 /compile_commands.json
+
+# IDE Specific
+.vscode/
+.idea/
