@@ -65,7 +65,8 @@ void CycleDPI::press() {
     _pressed = true;
     std::shared_lock lock(_config_mutex);
     std::lock_guard dpi_lock(_dpi_mutex);
-    if (_dpi && _config.dpis.has_value() && _config.dpis.value().empty()) {
+//     https://github.com/PixlOne/logiops/pull/381/files
+    if (_dpi && _config.dpis.has_value() && !_config.dpis.value().empty()) {
         ++_current_dpi;
         if (_current_dpi == _config.dpis.value().end())
             _current_dpi = _config.dpis.value().begin();
